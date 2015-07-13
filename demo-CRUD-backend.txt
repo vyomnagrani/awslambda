@@ -1,0 +1,62 @@
+## Example Events
+
+
+## Ping
+{
+    "operation": "ping"
+	"message": "pong"
+}
+
+## Echo
+{
+    "operation": "echo",
+    "message": "Hello world!"
+}
+
+## CRUD Operations
+## This assumes you have created a table called "myTable" with a hash key named "id".
+
+## Create
+{
+    "operation": "create",
+    "TableName": "myTable",
+    "Item": {
+        "id": "foo",
+        "number": 5
+    }
+} 
+
+## Read
+{
+    "operation": "read",
+    "TableName": "myTable",
+    "Key": {
+        "id": "foo"
+    }
+}
+
+## Update
+{
+    "operation": "update",
+    "TableName": "myTable",
+    "Key": {
+		"id": "foo"
+    },
+    "UpdateExpression": "set #n = :x",
+    "ExpressionAttributeNames": {
+        "#n": "number"
+    },
+    "ExpressionAttributeValues": {
+        ":x": 10
+    },
+    "ReturnValues": "ALL_NEW"
+}
+
+## Delete
+{ 
+    "operation": "delete",
+    "TableName": "myTable",
+    "Key": {
+		"id": "foo"
+    }
+}
